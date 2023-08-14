@@ -1,9 +1,38 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <RootNamespace>FatCat.Toolkit</RootNamespace>
+        <AssemblyName>FatCat.Toolkit</AssemblyName>
+        <DebugType>full</DebugType>
+        <LangVersion>latest</LangVersion>
+        <VersionPrefix>1.0.001</VersionPrefix>
+        <Authors>David Basarab</Authors>
+        <PackageTags>tools</PackageTags>
+        <RootNamespace>FatCat.Logger</RootNamespace>
+        <AssemblyName>FatCat.Logger</AssemblyName>
+        <PackageProjectUrl>https://github.com/DavidBasarab/FatCat.Logger</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/DavidBasarab/FatCat.Logger</RepositoryUrl>
+        <NoWarn>CS8002,CS1700</NoWarn>
+        <SignAssembly>true</SignAssembly>
+    </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NoWarn>CS8002,CS1700;IL2121;CS8618;IL2121;CS8603</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NoWarn>CS8002,CS1700;IL2121;CS8618;IL2121;CS8603</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+    <ItemGroup>
+      <PackageReference Include="FatCat.Toolkit" Version="1.0.154" />
+    </ItemGroup>
 </Project>

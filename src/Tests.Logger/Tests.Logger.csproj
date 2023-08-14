@@ -1,9 +1,51 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net7.0</TargetFramework>
-    <ImplicitUsings>enable</ImplicitUsings>
-    <Nullable>enable</Nullable>
-  </PropertyGroup>
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+        <ImplicitUsings>enable</ImplicitUsings>
+        <Nullable>disable</Nullable>
+        <RootNamespace>FatCat.Toolkit</RootNamespace>
+        <AssemblyName>FatCat.Toolkit</AssemblyName>
+        <DebugType>full</DebugType>
+        <LangVersion>latest</LangVersion>
+        <VersionPrefix>1.0.001</VersionPrefix>
+        <Authors>David Basarab</Authors>
+        <PackageTags>tools</PackageTags>
+        <RootNamespace>Tests.FatCat.Logger</RootNamespace>
+        <AssemblyName>Tests.FatCat.Logger</AssemblyName>
+        <PackageProjectUrl>https://github.com/DavidBasarab/FatCat.Logger</PackageProjectUrl>
+        <PackageLicenseExpression>MIT</PackageLicenseExpression>
+        <RepositoryUrl>https://github.com/DavidBasarab/FatCat.Logger</RepositoryUrl>
+        <NoWarn>CS8002,CS1700</NoWarn>
+        <SignAssembly>true</SignAssembly>
+    </PropertyGroup>
 
+    <PropertyGroup Condition=" '$(Configuration)' == 'Debug' ">
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NoWarn>CS8002,CS1700;IL2121;CS8618;IL2121;CS8603</NoWarn>
+    </PropertyGroup>
+
+    <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
+        <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+        <NoWarn>CS8002,CS1700;IL2121;CS8618;IL2121;CS8603</NoWarn>
+    </PropertyGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FakeItEasy" Version="7.4.0" />
+        <PackageReference Include="FatCat.Fakes" Version="1.0.22" />
+        <PackageReference Include="FluentAssertions" Version="6.11.0" />
+        <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.6.3" />
+        <PackageReference Include="xunit" Version="2.5.0" />
+        <PackageReference Include="xunit.runner.visualstudio" Version="2.5.0">
+            <PrivateAssets>all</PrivateAssets>
+            <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+        </PackageReference>
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\Logger\Logger.csproj" />
+    </ItemGroup>
 </Project>
