@@ -1,0 +1,12 @@
+
+Features
+
+    - Want to be able to inject it with an interface and use it static
+    - Be able to write to the console in color
+    - Logs should have a way to roll over
+    - Can configure in some fluent way
+    - Have log levels
+    - Can change log levels on the fly
+    - Run on a separate thread if Want
+    - Need to have a way to stop it cleanly
+    
