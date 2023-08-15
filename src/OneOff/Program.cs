@@ -12,5 +12,10 @@ public class Program
 		var consoleLogger = new ConsoleLogger(new ConsoleAccess());
 		
 		consoleLogger.Information("This is an information message");
+        consoleLogger.Warning("This is warning a message");
+		consoleLogger.Debug("This is a debug message");
+		consoleLogger.Error("An error message I am");
+		consoleLogger.Fatal("This was a fatal message.  Why I do not know");
+		consoleLogger.Verbose("This is a verbose message");
 	}
 }
