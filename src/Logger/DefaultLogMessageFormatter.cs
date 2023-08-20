@@ -16,6 +16,8 @@ public class DefaultLogMessageFormatter : ILogMessageFormatter
 
 	public string GetMessage(LogLevel logLevel, string message, string memberName, string sourceFilePath, int sourceLineNumber)
 	{
+		Console.WriteLine(sourceFilePath);
+		
 		var currentTime = dateTimeUtilities.LocalNow();
 
 		// Current Date | Log Level | ClassFileName.MemberName @ LineNumber | Message
