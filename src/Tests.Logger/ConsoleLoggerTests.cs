@@ -1,5 +1,4 @@
-﻿using FluentAssertions;
-using FakeItEasy;
+﻿using FakeItEasy;
 using FatCat.Logger;
 using FatCat.Toolkit.Console;
 using Xunit;
@@ -11,6 +10,6 @@ public class ConsoleLoggerTests
 	[Fact]
 	public void CanActuallyCreateAConsoleLoggerClass()
 	{
-		var consoleLogger = new ConsoleLogger(A.Fake<IConsoleAccess>());
+		var consoleLogger = new ConsoleLogger(A.Fake<IConsoleAccess>(), A.Fake<ILogMessageFormatter>());
 	}
 }

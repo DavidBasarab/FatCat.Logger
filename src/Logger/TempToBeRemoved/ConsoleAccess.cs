@@ -1,4 +1,5 @@
 ﻿// ReSharper disable once CheckNamespace
+
 namespace FatCat.Toolkit.Console;
 
 public interface IConsoleAccess

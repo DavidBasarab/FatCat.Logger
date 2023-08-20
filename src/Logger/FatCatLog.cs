@@ -1,6 +1,3 @@
 ﻿namespace FatCat.Logger;
 
-public static class FatCatLog
-{
-	
-}
+public static class FatCatLog { }

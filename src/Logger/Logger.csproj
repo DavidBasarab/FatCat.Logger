@@ -30,9 +30,9 @@
         <NoWarn>CS8002,CS1700;IL2121;CS8618;IL2121;CS8603</NoWarn>
     </PropertyGroup>
     <ItemGroup>
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+        <FrameworkReference Include="Microsoft.AspNetCore.App"/>
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="FatCat.Toolkit" Version="1.0.154" />
+        <PackageReference Include="FatCat.Toolkit" Version="1.0.154"/>
     </ItemGroup>
 </Project>

@@ -1,4 +1,5 @@
-﻿using FatCat.Toolkit.Console;
+﻿using System.Runtime.CompilerServices;
+using FatCat.Toolkit.Console;
 
 // ReSharper disable MethodOverloadWithOptionalParameter
 
@@ -7,36 +8,53 @@ namespace FatCat.Logger;
 public class ConsoleLogger : IFatCatLogger
 {
 	private readonly IConsoleAccess consoleAccess;
+	private readonly ILogMessageFormatter logMessageFormatter;
 
-	public ConsoleLogger(IConsoleAccess consoleAccess) => this.consoleAccess = consoleAccess;
-
-	public void Information(string message, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
+	public ConsoleLogger(IConsoleAccess consoleAccess, ILogMessageFormatter logMessageFormatter)
 	{
-		consoleAccess.WriteLineWithColor(ConsoleColor.Green, message);
+		this.consoleAccess = consoleAccess;
+		this.logMessageFormatter = logMessageFormatter;
 	}
 
-	public void Verbose(string message, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
+	public void Information(string message, [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
 	{
-		consoleAccess.WriteLineWithColor(ConsoleColor.Blue, message);
+		var finalMessage = logMessageFormatter.GetMessage(LogLevel.Information, message, memberName, sourceFilePath, sourceLineNumber);
+
+		consoleAccess.WriteLineWithColor(ConsoleColor.Green, finalMessage);
 	}
 
-	public void Debug(string message, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
+	public void Verbose(string message, [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
 	{
-		consoleAccess.WriteLineWithColor(ConsoleColor.Gray, message);
+		var finalMessage = logMessageFormatter.GetMessage(LogLevel.Verbose, message, memberName, sourceFilePath, sourceLineNumber);
+
+		consoleAccess.WriteLineWithColor(ConsoleColor.Blue, finalMessage);
 	}
 
-	public void Warning(string message, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
+	public void Debug(string message, [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
 	{
-		consoleAccess.WriteLineWithColor(ConsoleColor.Yellow, message);
+		var finalMessage = logMessageFormatter.GetMessage(LogLevel.Debug, message, memberName, sourceFilePath, sourceLineNumber);
+
+		consoleAccess.WriteLineWithColor(ConsoleColor.Gray, finalMessage);
 	}
 
-	public void Error(string message, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
+	public void Warning(string message, [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
 	{
-		consoleAccess.WriteLineWithColor(ConsoleColor.Red, message);
+		var finalMessage = logMessageFormatter.GetMessage(LogLevel.Warning, message, memberName, sourceFilePath, sourceLineNumber);
+
+		consoleAccess.WriteLineWithColor(ConsoleColor.Yellow, finalMessage);
 	}
 
-	public void Fatal(string message, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
+	public void Error(string message, [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
 	{
-		consoleAccess.WriteLineWithColor(ConsoleColor.DarkRed, message);
+		var finalMessage = logMessageFormatter.GetMessage(LogLevel.Error, message, memberName, sourceFilePath, sourceLineNumber);
+
+		consoleAccess.WriteLineWithColor(ConsoleColor.Red, finalMessage);
+	}
+
+	public void Fatal(string message, [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
+	{
+		var finalMessage = logMessageFormatter.GetMessage(LogLevel.Fatal, message, memberName, sourceFilePath, sourceLineNumber);
+
+		consoleAccess.WriteLineWithColor(ConsoleColor.DarkRed, finalMessage);
 	}
 }

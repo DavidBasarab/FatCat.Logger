@@ -1,6 +1,4 @@
-﻿// ReSharper disable once CheckNamespace
-
-namespace FatCat.Toolkit;
+﻿namespace FatCat.Logger.TempToBeRemoved;
 
 public interface IDateTimeUtilities
 {

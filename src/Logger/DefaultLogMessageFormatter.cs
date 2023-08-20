@@ -1,4 +1,4 @@
-﻿using FatCat.Toolkit;
+﻿using FatCat.Logger.TempToBeRemoved;
 
 namespace FatCat.Logger;
 
@@ -15,6 +15,12 @@ public class DefaultLogMessageFormatter : ILogMessageFormatter
 
 	public string GetMessage(LogLevel logLevel, string message, string memberName, string sourceFilePath, int sourceLineNumber)
 	{
-		return "TODO";
+		var currentTime = dateTimeUtilities.LocalNow();
+
+		// Current Date | Log Level | ClassFileName.MemberName @ LineNumber | Message
+		var fileName = Path.GetFileNameWithoutExtension(sourceFilePath);
+        
+
+		return $"{currentTime:yyyy.MM.dd HH:mm:ss:fff} | {logLevel} | {fileName}.{memberName} @ {sourceLineNumber} | {message}";
 	}
 }

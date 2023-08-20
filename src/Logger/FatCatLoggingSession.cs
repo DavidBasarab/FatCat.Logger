@@ -5,11 +5,6 @@ public class FatCatLoggingSession
 	public static FatCatLoggingSession New() => new();
 
 	private FatCatLoggingSession() { }
-	
-	public FatCatLoggingSession UseConsole()
-	{
-		return this;
-	}
-	
-	
+
+	public FatCatLoggingSession UseConsole() => this;
 }
