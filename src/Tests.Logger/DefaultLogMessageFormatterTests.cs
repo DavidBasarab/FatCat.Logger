@@ -2,6 +2,7 @@
 using FatCat.Fakes;
 using FatCat.Logger;
 using FatCat.Logger.TempToBeRemoved;
+using FatCat.Toolkit.Extensions;
 using FluentAssertions;
 using Xunit;
 
@@ -42,7 +43,7 @@ public class DefaultLogMessageFormatterTests
 	[Fact]
 	public void GiveALogFormat()
 	{
-		var expectedMessage = $"{localTime:yyyy.MM.dd HH:mm:ss:fff} | {logLevel} | SomeClass.SomeFunction @ {sourceLine} | {message}";
+		var expectedMessage = $"{localTime:yyyy.MM.dd HH:mm:ss:fff} | {logLevel.ToString().FixedLength(11)} | SomeClass.SomeFunction @ {sourceLine} | {message}";
 
 		formatter.GetMessage(logLevel, message, memberName, sourceFilePath, sourceLine)
 				.Should()
