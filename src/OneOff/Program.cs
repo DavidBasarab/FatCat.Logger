@@ -1,7 +1,6 @@
 ﻿using System.Diagnostics;
 using FatCat.Logger;
-using FatCat.Logger.Spikes;
-using FatCat.Logger.TempToBeRemoved;
+using FatCat.Toolkit;
 using FatCat.Toolkit.Console;
 
 namespace OneOff;
@@ -17,7 +16,7 @@ public class Program
 		// Logger = new StackTraceLogger();
 		Logger = new ConsoleLogger(new ConsoleAccess(), new DefaultLogMessageFormatter(new DateTimeUtilities()));
 
-		var runs = 1000;
+		var runs = 1;
 		var totalTime = TimeSpan.Zero;
 
 		for (var i = 0; i < runs; i++)

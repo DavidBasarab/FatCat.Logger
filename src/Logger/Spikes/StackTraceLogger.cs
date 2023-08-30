@@ -1,5 +1,5 @@
 ﻿using System.Diagnostics;
-using FatCat.Logger.TempToBeRemoved;
+using FatCat.Toolkit;
 using FatCat.Toolkit.Console;
 
 namespace FatCat.Logger.Spikes;
@@ -11,7 +11,7 @@ public class StackTraceLogger : IFatCatLogger
 	public void Debug(string message, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
 	{
 		Console.WriteLine($"IN Debug {message}");
-		
+
 		var stackTrace = new StackTrace(1, false);
 
 		var stackFrame = stackTrace.GetFrame(0);
@@ -20,7 +20,7 @@ public class StackTraceLogger : IFatCatLogger
 		var declaringType = method.DeclaringType;
 		var methodName = method.Name;
 		var lineNumber = stackFrame.GetFileLineNumber();
-		
+
 		Console.WriteLine("Going to hit DEBUG now");
 
 		consoleLogger.Debug(message, methodName, declaringType.Name, lineNumber);

@@ -1,7 +1,7 @@
 ﻿using FakeItEasy;
 using FatCat.Fakes;
 using FatCat.Logger;
-using FatCat.Logger.TempToBeRemoved;
+using FatCat.Toolkit;
 using FatCat.Toolkit.Extensions;
 using FluentAssertions;
 using Xunit;
