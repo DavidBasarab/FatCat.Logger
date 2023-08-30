@@ -21,7 +21,7 @@ public class DefaultLogMessageFormatter : ILogMessageFormatter
 		var currentTime = dateTimeUtilities.LocalNow();
 
 		// Current Date | Log Level | ClassFileName.MemberName @ LineNumber | Message
-		var fileName = Path.GetFileNameWithoutExtension(sourceFilePath);
+		var fileName = sourceFilePath;
         
 
 		return $"{currentTime:yyyy.MM.dd HH:mm:ss:fff} | {logLevel.ToString().FixedLength(11)} | {fileName}.{memberName} @ {sourceLineNumber} | {message}";
