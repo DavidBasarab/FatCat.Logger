@@ -5,17 +5,8 @@ using FatCat.Toolkit.Console;
 
 namespace FatCat.Logger;
 
-public class ConsoleLogger : IFatCatLogger
+public class ConsoleLogger(IConsoleAccess consoleAccess, ILogMessageFormatter logMessageFormatter) : IFatCatLogger
 {
-	private readonly IConsoleAccess consoleAccess;
-	private readonly ILogMessageFormatter logMessageFormatter;
-
-	public ConsoleLogger(IConsoleAccess consoleAccess, ILogMessageFormatter logMessageFormatter)
-	{
-		this.consoleAccess = consoleAccess;
-		this.logMessageFormatter = logMessageFormatter;
-	}
-
 	public void Information(string message, [CallerMemberName] string memberName = "", [CallerFilePath] string sourceFilePath = "", [CallerLineNumber] int sourceLineNumber = 0)
 	{
 		var finalMessage = logMessageFormatter.GetMessage(LogLevel.Information, message, memberName, sourceFilePath, sourceLineNumber);

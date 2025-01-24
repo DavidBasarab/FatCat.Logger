@@ -6,7 +6,7 @@ namespace FatCat.Logger.Spikes;
 
 public class StackTraceLogger : IFatCatLogger
 {
-	private readonly ConsoleLogger consoleLogger = new(new ConsoleAccess(), new DefaultLogMessageFormatter(new DateTimeUtilities()));
+	private readonly ConsoleLogger consoleLogger = new(new SystemConsoleAccess(), new DefaultLogMessageFormatter(new DateTimeUtilities()));
 
 	public void Debug(string message, string memberName = "", string sourceFilePath = "", int sourceLineNumber = 0)
 	{

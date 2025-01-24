@@ -14,7 +14,7 @@ public class Program
 		Console.WriteLine("Hello Fat Cat Logger");
 
 		// Logger = new StackTraceLogger();
-		Logger = new ConsoleLogger(new ConsoleAccess(), new DefaultLogMessageFormatter(new DateTimeUtilities()));
+		Logger = new ConsoleLogger(new SystemConsoleAccess(), new DefaultLogMessageFormatter(new DateTimeUtilities()));
 
 		var runs = 1;
 		var totalTime = TimeSpan.Zero;
