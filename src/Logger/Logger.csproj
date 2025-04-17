@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net9.0</TargetFramework>
         <ImplicitUsings>enable</ImplicitUsings>
         <Nullable>disable</Nullable>
         <RootNamespace>FatCat.Toolkit</RootNamespace>
@@ -33,6 +33,6 @@
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
     <ItemGroup>
-      <PackageReference Include="FatCat.Toolkit" Version="1.0.154" />
+        <PackageReference Include="FatCat.Toolkit" Version="1.0.262" />
     </ItemGroup>
 </Project>
