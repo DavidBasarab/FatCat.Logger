@@ -33,6 +33,6 @@
         <FrameworkReference Include="Microsoft.AspNetCore.App" />
     </ItemGroup>
     <ItemGroup>
-        <PackageReference Include="FatCat.Toolkit" Version="1.0.262" />
+        <PackageReference Include="FatCat.Toolkit" Version="1.0.356" />
     </ItemGroup>
 </Project>
