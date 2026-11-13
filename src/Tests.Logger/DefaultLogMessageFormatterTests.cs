@@ -3,7 +3,7 @@ using FatCat.Fakes;
 using FatCat.Logger;
 using FatCat.Toolkit;
 using FatCat.Toolkit.Extensions;
-using FluentAssertions;
+using FatCat.Testing;
 using Xunit;
 
 namespace Tests.FatCat.Logger;
