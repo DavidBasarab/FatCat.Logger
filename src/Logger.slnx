@@ -1,0 +1,5 @@
+<Solution>
+  <Project Path="Logger/Logger.csproj" />
+  <Project Path="OneOff/OneOff.csproj" />
+  <Project Path="Tests.Logger/Tests.Logger.csproj" />
+</Solution>
